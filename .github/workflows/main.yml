@@ -1,4 +1,4 @@
-name: CI Build
+name: CI
 
 on:
   push:
@@ -7,8 +7,10 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  test-and-build:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - name: Checkout repository
@@ -25,7 +27,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        run: pytest -q
+        run: python -m pytest tests -q
 
       - name: Build Docker image
         run: docker build -t cloud-log-monitoring:ci .
@@ -36,4 +38,3 @@ jobs:
           sleep 8
           curl --fail http://localhost:5000/health
           docker stop monitoring-ci
-
