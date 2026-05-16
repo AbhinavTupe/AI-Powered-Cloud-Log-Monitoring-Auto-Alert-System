@@ -1,0 +1,28 @@
+services:
+  monitoring-api:
+    build: .
+    container_name: cloud-log-monitoring-api
+    ports:
+      - "80:5000"
+    env_file:
+      - path: .env.example
+        required: true
+      - path: .env
+        required: false
+    environment:
+      FLASK_ENV: production
+      DATABASE_PATH: /app/instance/monitoring.db
+    volumes:
+      - monitoring-data:/app/instance
+      - monitoring-logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  monitoring-data:
+  monitoring-logs:

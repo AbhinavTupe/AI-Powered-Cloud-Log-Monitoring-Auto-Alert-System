@@ -29,6 +29,9 @@ jobs:
       - name: Run tests
         run: python -m pytest tests -q
 
+      - name: Validate production Compose file
+        run: docker compose -f docker-compose.prod.yml config
+
       - name: Build Docker image
         run: docker build -t cloud-log-monitoring:ci .
 
