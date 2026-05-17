@@ -255,15 +255,42 @@ python -m pytest tests -q
 
 The tests cover health checks, log ingestion, keyword alerting, repeated failures, high-frequency detection, and alert summaries.
 
-## Screenshot Placeholders
+## Deployment Proof Screenshots
 
-Add screenshots to a future `docs/screenshots/` folder:
+Add proof screenshots in `docs/screenshots/` using these filenames:
 
-- `docs/screenshots/health-check.png`
-- `docs/screenshots/log-ingestion.png`
-- `docs/screenshots/alerts-summary.png`
-- `docs/screenshots/github-actions-ci.png`
-- `docs/screenshots/ec2-deployment.png`
+- `docs/screenshots/github-actions-success.png`
+- `docs/screenshots/aws-ec2-instance-running.png`
+- `docs/screenshots/ec2-health-check.png`
+- `docs/screenshots/ec2-dashboard.png`
+- `docs/screenshots/ec2-alerts.png`
+- `docs/screenshots/ec2-logs.png`
+
+After adding the image files, GitHub will render them here:
+
+### GitHub Actions CI/CD Success
+
+![GitHub Actions Success](docs/screenshots/github-actions-success.png)
+
+### AWS EC2 Instance Running
+
+![AWS EC2 Instance Running](docs/screenshots/aws-ec2-instance-running.png)
+
+### EC2 Health Check
+
+![EC2 Health Check](docs/screenshots/ec2-health-check.png)
+
+### EC2 Dashboard
+
+![EC2 Dashboard](docs/screenshots/ec2-dashboard.png)
+
+### EC2 Alerts
+
+![EC2 Alerts](docs/screenshots/ec2-alerts.png)
+
+### EC2 Logs
+
+![EC2 Logs](docs/screenshots/ec2-logs.png)
 
 ## Interview Talking Points
 
@@ -285,4 +312,3 @@ Add screenshots to a future `docs/screenshots/` folder:
 - Add alert deduplication by fingerprint
 - Add log retention policies
 - Deploy behind Nginx with HTTPS
-
